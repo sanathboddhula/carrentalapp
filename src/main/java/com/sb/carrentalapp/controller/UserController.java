@@ -16,7 +16,7 @@ public class UserController {
     UserRepository userRepository;
 
     @GetMapping("/users")
-    public ResponseEntity<List<User>> getAllUsers(@RequestParam(required = false) String firstName) {
+    public ResponseEntity<List<User>> getAllUsers() {
         try {
             List<User> users = new ArrayList<>();
 
