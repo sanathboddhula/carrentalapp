@@ -15,7 +15,7 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping("/users")
+    @GetMapping("/fetch/users")
     public ResponseEntity<List<User>> getAllUsers() {
         try {
             List<User> users = new ArrayList<>();
@@ -32,8 +32,8 @@ public class UserController {
         }
     }
 
-    @PostMapping("/user")
-    public ResponseEntity<User> createTutorial(@RequestBody User user) {
+    @PostMapping("/add/user")
+    public ResponseEntity<User> createUser(@RequestBody User user) {
         try {
             User userSaved = userRepository
                     .save(user);

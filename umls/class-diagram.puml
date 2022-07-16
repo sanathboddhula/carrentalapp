@@ -1,0 +1,46 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class User
+class Vehicle
+class Reservation
+
+Reservation o-- User
+Reservation o-- Vehicle
+class ReservationController {
+    Reservation reserveCar(User, Vehicle)
+    boolean returnCar(Reservation)
+    boolean cancelReservation(Reservation)
+}
+
+class VehicleController{
+    List<Vehicle> findByDateRange(DateRange)
+}
+
+class UserController{
+    User registerUser(User)
+    boolean loginUser(User)
+}
+abstract AbstractCollection
+interface List
+interface Collection
+
+List <|-- AbstractList
+Collection <|-- AbstractCollection
+
+Collection <|- List
+AbstractCollection <|- AbstractList
+AbstractList <|-- ArrayList
+
+class ArrayList {
+Object[] elementData
+size()
+}
+
+enum TimeUnit {
+DAYS
+HOURS
+MINUTES
+}
+
+@enduml

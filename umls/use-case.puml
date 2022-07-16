@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+left to right direction
+package CarRentalApp{
+    usecase Register
+    usecase Login
+    usecase "Check Availability"
+    usecase Reserve
+    usecase "Cancel Reservation"
+    usecase "Return Vehicle"
+    usecase "Pickup Vehicle"
+}
+
+User --> (Register)
+User --> (Login)
+User --> (Check Availability)
+User --> (Reserve)
+User --> (Cancel Reservation)
+User --> (Return Vehicle)
+User --> (Pickup Vehicle)
+
+
+@enduml

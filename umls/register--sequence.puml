@@ -1,0 +1,10 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor User
+User -> UserController: registerUser
+UserController --> UserRepository: save
+
+
+@enduml
