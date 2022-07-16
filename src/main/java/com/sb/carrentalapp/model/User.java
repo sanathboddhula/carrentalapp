@@ -14,5 +14,5 @@ public class User {
     private String firstName;
     private String lastName;
     private String emailID;
-    private int contactNumber;
+    private long contactNumber;
 }

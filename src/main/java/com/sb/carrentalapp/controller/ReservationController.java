@@ -54,6 +54,7 @@ public class ReservationController {
     @PostMapping("/returnVehicle")
     public ResponseEntity<Reservation> returnVehicle(@RequestBody Long reservationId) {
         try {
+            System.out.println("Reservation Id:" + reservationId);
             Optional<Reservation> reservation = reservationRepository.findById(reservationId);
             Reservation reservation1 = reservation.get();
             reservation1.setStatus(ReservationStatus.RETURNED.name());

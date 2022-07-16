@@ -67,7 +67,8 @@ public class VehicleController {
             List<Vehicle> allAvailableVehicles = new ArrayList<>();
             for (Vehicle vehicle : allVehicles) {
                 System.out.println(vehicle.toString());
-                List<Reservation> listOfReservationsForDateRange = reservationRepository.findByVehicleIdAndDateRange(vehicle.getId(), dateRange.getFromDate(), dateRange.getToDate());
+                List<Reservation> listOfReservationsForDateRange = reservationRepository.findByVehicleIdAndDateRange(vehicle.getId());
+                //dateRange.getFromDate(), dateRange.getToDate()
                 //checking if vehicle is reserved for given date
                 if (listOfReservationsForDateRange == null || listOfReservationsForDateRange.isEmpty()) {
                     allAvailableVehicles.add(vehicle);
