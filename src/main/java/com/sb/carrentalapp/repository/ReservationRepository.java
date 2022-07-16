@@ -10,11 +10,10 @@ import java.util.Date;
 import java.util.List;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
-//    @Query(value = "Select * from Reservations r where vehicle_id = :vehicleId and (:fromDate <= :toDate) and (:toDate < from_date or :fromDate > to_date) ",
-//            nativeQuery = true)
-    @Query(value = "Select * from Reservations r where vehicle_id = :vehicleId ",
+
+    @Query(value = "Select * from Reservations r where vehicle_id = :vehicleId and (cast(:fromDate AS TIMESTAMP) <= cast(:toDate AS TIMESTAMP)) and (cast(:toDate AS TIMESTAMP) < cast(from_date AS TIMESTAMP) or cast(:fromDate AS TIMESTAMP) > cast(to_date AS TIMESTAMP)) ",
             nativeQuery = true)
-    public List<Reservation> findByVehicleIdAndDateRange(@Param("vehicleId") Long vehicleId);
-    //@Param("fromDate") Date fromDate, @Param("toDate") Date toDate
+    //cast(:dateFrom AS timestamp)
+    public List<Reservation> findByVehicleIdAndDateRange(@Param("vehicleId") Long vehicleId, @Param("fromDate") Date fromDate, @Param("toDate") Date toDate);
 
 }

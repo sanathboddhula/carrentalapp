@@ -5,6 +5,7 @@ import com.sb.carrentalapp.model.Vehicle;
 import com.sb.carrentalapp.repository.ReservationRepository;
 import com.sb.carrentalapp.repository.VehicleRepository;
 import com.sb.carrentalapp.util.DateRange;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@Slf4j
 public class VehicleController {
     @Autowired
     VehicleRepository vehicleRepository;
@@ -66,9 +68,8 @@ public class VehicleController {
             List<Vehicle> allVehicles = vehicleRepository.findAll();
             List<Vehicle> allAvailableVehicles = new ArrayList<>();
             for (Vehicle vehicle : allVehicles) {
-                System.out.println(vehicle.toString());
-                List<Reservation> listOfReservationsForDateRange = reservationRepository.findByVehicleIdAndDateRange(vehicle.getId());
-                //dateRange.getFromDate(), dateRange.getToDate()
+                log.info(vehicle.toString());
+                List<Reservation> listOfReservationsForDateRange = reservationRepository.findByVehicleIdAndDateRange(vehicle.getId(), dateRange.getFromDate(), dateRange.getToDate());
                 //checking if vehicle is reserved for given date
                 if (listOfReservationsForDateRange == null || listOfReservationsForDateRange.isEmpty()) {
                     allAvailableVehicles.add(vehicle);

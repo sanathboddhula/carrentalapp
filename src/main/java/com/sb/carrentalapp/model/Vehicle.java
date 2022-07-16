@@ -18,5 +18,4 @@ public class Vehicle {
     private String condition;
 
 
-
 }
