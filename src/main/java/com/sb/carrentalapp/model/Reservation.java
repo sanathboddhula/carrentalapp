@@ -3,6 +3,7 @@ package com.sb.carrentalapp.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "reservations")
@@ -15,6 +16,9 @@ public class Reservation {
     private User user;
     @OneToOne
     private Vehicle vehicle;
+    private Date fromDate;
+    private Date toDate;
+    private String status;
 
 
 }

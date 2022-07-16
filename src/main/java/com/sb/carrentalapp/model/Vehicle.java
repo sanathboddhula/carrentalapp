@@ -17,4 +17,6 @@ public class Vehicle {
     private int currentMileage;
     private String condition;
 
+
+
 }
